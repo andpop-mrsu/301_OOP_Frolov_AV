@@ -13,10 +13,17 @@ class PayPalAdapter implements PaymentAdapterInterface
         $this->paypal = $paypal;
     }
 
+<<<<<<< HEAD
     public function collectMoney($amount)
     {
         $result = $this->paypal->authorizeTransaction($amount);
         if ($result === 'PayPal Success!') {
+=======
+    public function collectMoney($amount): bool
+    {
+        $result = $this->paypal->transfer($this->paypal->getEmail(), $amount);
+        if ($result === 'Paypal Success!') {
+>>>>>>> student/Task06
             return true;
         }
         return false;
